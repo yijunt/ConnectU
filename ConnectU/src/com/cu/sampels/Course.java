@@ -14,6 +14,11 @@ public class Course {
 		this.semesterThree = semesterThree;
 		this.link = link;
 	}
+	
+	public Course(String courseId, String prerequisiteCourse) {
+		this.courseId = courseId;
+		this.prerequisiteCourse = prerequisiteCourse;
+	}
 	private String courseName;
 	private String courseId;
 	private int courseUOC;
@@ -22,6 +27,7 @@ public class Course {
 	private boolean semesterTwo;
 	private boolean semesterThree;
 	private String link;
+	private String prerequisiteCourse;
 	
 	public String getCourseName() {
 		return courseName;
@@ -70,5 +76,12 @@ public class Course {
 	}
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public String getPrerequisiteCourse() {
+		return prerequisiteCourse;
+	}
+	public void setPrerequisiteCourse(String prerequisiteCourse) {
+		this.prerequisiteCourse = prerequisiteCourse;
 	}
 }
