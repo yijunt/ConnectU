@@ -8,9 +8,10 @@ public class ProgressionPlanController {
     //https://www.javagists.com/java-tree-data-structure
     public static boolean addedNodeFlag = false;
     public static void main(String[] args) {
-        Node<String> root = createCourseTree();
-        System.out.print("print root");
-        printTree(root, " ");
+//        Node<String> root = createCourseTree();
+//        System.out.print("print root");
+//        printTree(root, " ");
+    	System.out.println(getRemainingCourseList());
     }
     private static CourseSample courseSample = new CourseSample();
 
@@ -66,6 +67,7 @@ public class ProgressionPlanController {
             System.out.println("the course exists!");
             System.out.println(node.getData());
             createChildNote(course, node);
+            
             addedNodeFlag = true;
             return;
         } else {
@@ -75,5 +77,21 @@ public class ProgressionPlanController {
 
     private static Node<String> createChildNote(String child, Node<String> parentNode){
         return parentNode.addChild(new Node<>(child));
+    }
+    
+    private static int getRemainingCourseList() {
+    	int count = 0;
+        ArrayList<String[]> totalCourseList = courseSample.getCourseList();
+        ArrayList<String> completedCourseList = courseSample.getCourseCompleted();
+        
+        for (String[] totalCourse: totalCourseList) {
+        	for(String completedCourse: completedCourseList) {
+        		if(totalCourse[1].equals(completedCourse)) {
+        			count++;
+        		}
+        	}
+        }
+    	
+    	return count;
     }
 }

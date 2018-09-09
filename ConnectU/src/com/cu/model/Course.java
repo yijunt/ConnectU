@@ -1,14 +1,33 @@
 package com.cu.model;
 
 public class Course {
+	public Course() {};
+	
+	public Course(String courseName, String courseId, int courseUOC, String prerequisiteCourseId, boolean semesterOne,
+			boolean semesterTwo, boolean semesterThree, String link, String[] prerequisiteCourses) {
+		super();
+		this.courseName = courseName;
+		this.courseId = courseId;
+		this.courseUOC = courseUOC;
+		this.prerequisiteCourseId = prerequisiteCourseId;
+		this.semesterOne = semesterOne;
+		this.semesterTwo = semesterTwo;
+		this.semesterThree = semesterThree;
+		this.link = link;
+		this.prerequisiteCourses = prerequisiteCourses;
+	}
+
+
 	private String courseName;
 	private String courseId;
 	private int courseUOC;
-	private boolean prerequisite;
+	private String prerequisiteCourseId;
 	private boolean semesterOne;
 	private boolean semesterTwo;
 	private boolean semesterThree;
 	private String link;
+	private String[] prerequisiteCourses;
+	
 	public String getCourseName() {
 		return courseName;
 	}
@@ -27,11 +46,11 @@ public class Course {
 	public void setCourseUOC(int courseUOC) {
 		this.courseUOC = courseUOC;
 	}
-	public boolean isPrerequisite() {
-		return prerequisite;
+	public String getPrerequisiteCourseId() {
+		return prerequisiteCourseId;
 	}
-	public void setPrerequisite(boolean prerequisite) {
-		this.prerequisite = prerequisite;
+	public void setPrerequisiteCourseId(String prerequisiteCourseId) {
+		this.prerequisiteCourseId = prerequisiteCourseId;
 	}
 	public boolean isSemesterOne() {
 		return semesterOne;
@@ -57,4 +76,12 @@ public class Course {
 	public void setLink(String link) {
 		this.link = link;
 	}
+	public String[] getPrerequisiteCourses() {
+		return prerequisiteCourses;
+	}
+	public void setPrerequisiteCourses(String[] prerequisiteCourses) {
+		this.prerequisiteCourses = prerequisiteCourses;
+	}
+	
+	
 }

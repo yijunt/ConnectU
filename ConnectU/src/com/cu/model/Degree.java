@@ -1,9 +1,22 @@
 package com.cu.model;
 
 public class Degree {
+	public Degree() {};
+	
+	public Degree(String degreeId, String degreeName, String totalUOC, String faculty, boolean freeElective,
+			boolean genedCourse) {
+		super();
+		this.degreeId = degreeId;
+		this.degreeName = degreeName;
+		this.totalUOC = totalUOC;
+		this.faculty = faculty;
+		this.freeElective = freeElective;
+		this.genedCourse = genedCourse;
+	}
+
 	private String degreeId;
 	private String degreeName;
-	private int totalUOC;
+	private String totalUOC;
 	private String faculty;
 	private boolean freeElective;
 	private boolean genedCourse;
@@ -19,10 +32,10 @@ public class Degree {
 	public void setDegreeName(String degreeName) {
 		this.degreeName = degreeName;
 	}
-	public int getTotalUOC() {
+	public String getTotalUOC() {
 		return totalUOC;
 	}
-	public void setTotalUOC(int totalUOC) {
+	public void setTotalUOC(String totalUOC) {
 		this.totalUOC = totalUOC;
 	}
 	public String getFaculty() {

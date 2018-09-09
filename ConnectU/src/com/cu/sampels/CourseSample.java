@@ -37,4 +37,18 @@ public class CourseSample {
         return courseList;
 
     }
+    
+    public ArrayList<String> getCourseCompleted() {
+        ArrayList<String> courseList = new ArrayList<>();
+//        String[] INFS1602 = {"INFS1602",null};
+//        String[] INFS1603 = {"INFS1603", null};
+//        String[] INFS2631 = {"INFS2631", "INFS1602"};
+//        String[] INFS3873 = {"INFS3873", "INFS2631"};
+//        String[] INFS2621 = {"INFS2621", "INFS1602"};
+//        String[] INFS3607 = {"INFS3607", "INFS2631"};
+        courseList.add("INFS1602");
+        courseList.add("INFS1603");
+        courseList.add("INFS2631");
+        return courseList;
+    }
 }
