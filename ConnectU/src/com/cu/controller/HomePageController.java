@@ -39,6 +39,10 @@ public class HomePageController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		studentId = request.getSession().getAttribute("userName").toString();
-		
+		ConnectUController cu = new ConnectUController();
+		System.out.println(cu.getExtraCoursesObject(studentId));
+		System.out.println(cu.getCoursesObject(studentId));
+
+		request.getSession().setAttribute("name", cu.getExtraCoursesObject(studentId));
 	}
 }

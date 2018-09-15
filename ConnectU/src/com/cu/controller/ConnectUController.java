@@ -65,6 +65,18 @@ public class ConnectUController {
 		return courseGson.toJson(courseObject); //the symbol & will be replace into '/u0026', either replace string here or in mysql
 		
 	}
+
+	public String getExtraCoursesObject (String studentId) {
+		ArrayList<Course> courseList = extraCourseList(studentId);
+		
+		Gson gson = new Gson();
+		return gson.toJson(courseList);
+	}
+	
+	public String getMajorList (String studentId) {
+	
+		return null;
+	}
 	
 	//get studentInfo
 	public Student studentInfo(String studentId) {
@@ -115,21 +127,26 @@ public class ConnectUController {
 	}
 	
 	//return a hashmap of major courses if available
+	/*RETURN OBJECT MIGHT BE EMPTY!! MUST PERFORM CHECKING*/
 	public HashMap<String, ArrayList<String>> majorMap(String studentId) {
 		HashMap<String, ArrayList<String>> majorMap = new HashMap<>();
-
-		for (Map.Entry<CourseDegree, Course> value : courseInfo(studentId).entrySet()) {
-			CourseDegree courseDegree = value.getKey();
-			if(courseDegree.getMajor() != null) {
-				ArrayList<String> majorCourse;
-				if(majorMap.containsKey(courseDegree.getMajor())) {
-					majorCourse = majorMap.get(courseDegree.getMajor());
-				} else {
-					majorCourse = new ArrayList<>();
+		try {
+			
+			for (Map.Entry<CourseDegree, Course> value : courseInfo(studentId).entrySet()) {
+				CourseDegree courseDegree = value.getKey();
+				if(courseDegree.getMajor() != null) {
+					ArrayList<String> majorCourse;
+					if(majorMap.containsKey(courseDegree.getMajor())) {
+						majorCourse = majorMap.get(courseDegree.getMajor());
+					} else {
+						majorCourse = new ArrayList<>();
+					}
+					majorCourse.add(courseDegree.getCourseId());
+					majorMap.put(courseDegree.getMajor(), majorCourse);
 				}
-				majorCourse.add(courseDegree.getCourseId());
-				majorMap.put(courseDegree.getMajor(), majorCourse);
-			}
+			}	
+		} catch (NullPointerException e) {
+			System.out.println("No major in this degree: " + e);
 		}
 		return majorMap;
 	}
