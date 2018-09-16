@@ -31,7 +31,9 @@ public class LoginController extends HttpServlet {
 
 		if(result) {
 			request.getSession().setAttribute("userName", userName);
-			response.sendRedirect("html/homepage.html");
+//			response.sendRedirect("html/homepage.html");
+			response.sendRedirect("HomePageController");
+			
 		}
 		
 	}

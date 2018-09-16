@@ -26,19 +26,17 @@ public class ConnectUController {
 		Gson courseGson = new Gson();
 		for(Course course : courseList) {
 			Gson gson = new Gson();
-			String courseId = course.getCourseId();
-			String courseName = course.getCourseName();
-			boolean courseTaken = false;
-			String mainPrerequisiteCourse = null;
+			boolean completed = false;
+			String parent = null;
 			String secPrerequisiteCourse = null;
 			boolean twoPrerequisite = false;
 			boolean semester[] = {false, false, false};
 			String link = course.getLink();
 			if(courseTakenList.contains(course)) {
-				courseTaken = true;
+				completed = true;
 			}
 			if(course.getPrerequisiteCourseId() != null) {
-				mainPrerequisiteCourse = course.getPrerequisiteCourseId();
+				parent = course.getPrerequisiteCourseId();
 				if(course.getPrerequisiteCourses() != null) {
 					String[] twoPrerequisites = course.getPrerequisiteCourses();
 					secPrerequisiteCourse = twoPrerequisites[1]; //getSecondCourse
@@ -56,8 +54,8 @@ public class ConnectUController {
 			}
 			
 			CourseFC courseFC = new CourseFC
-					(courseId, courseName, mainPrerequisiteCourse, 
-					secPrerequisiteCourse, link, courseTaken, twoPrerequisite, semester);
+					(course.getCourseId(), course.getCourseName(), parent, 
+					secPrerequisiteCourse, link, completed, twoPrerequisite, semester);
 			String json = gson.toJson(courseFC);
 			courseObject.add(courseFC);
 		}
