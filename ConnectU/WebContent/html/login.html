@@ -1,18 +1,124 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<title>ConnectYou</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    </head>
 <body>
-<h1>Details</h1>
-<form method = "post" action = "/ConnectU/LoginController">
-Name: <input type = "text" name = "userName">
-<br>
-Password: <input type = "password" name = "password">
-<br>
+    <div class="loginbox">
+    <img src="../avatar4.png" class="avatar">
+        <h1>ConnectYou</h1>
+        <form method = "post" action = "/ConnectU/LoginController">
+            <p>USER ID</p>
+            <input type="text" name="userName" placeholder="User ID">
+            <p>PASSWORD</p>
+            <input type="password" name="password" placeholder="Enter your password">
+            <input type="submit" name="" value="submit">
 
-<input type = "submit" value = "submit">
-</form>
+        </form>
+        
+    </div>
+       <canvas width="1920" height="910" id="c1"></canvas> 
+<script>  
+var body = document.body;  
+var canvasObj = document.getElementById("c1");  
+var canvas2d = canvasObj.getContext("2d");  
+var arr = [];  
+var count = 300;  
+var mouse = {};  
+document.onmousemove = function(evt) {  
+    var e = evt || window.event;  
+    mouse = {  
+        xx: e.clientX,  
+        yy: e.clientY  
+    }  
+}  
+document.onmouseleave = function() {  
+    mouse = undefined;  
+}  
+document.oncontextmenu = function() {  
+    return false;  
+}  
+  
+function ty() {  
+    canvas2d.clearRect(0, 0, canvasObj.width, canvasObj.height);  
+    for (var i = 0; i < count; i++) {  
+        if (arr.length != count) {  
+            p = {  
+                x: Math.floor(Math.random() * body.clientWidth),  
+                y: Math.floor(Math.random() * body.clientHeight),  
+                vx: 1 - Math.random() * 2,  
+                vy: 1 - Math.random() * 2,  
+                num: 0  
+            }  
+        } else {  
+            p = hua(arr[i]);  
+        }  
+        canvas2d.fillStyle = "white";  
+        canvas2d.fillRect(p.x, p.y, 2, 2);  
+        arr[i] = p;  
+    }  
+    jiance(mouse);  
+}  
+setInterval(ty, 10);  
+  
+function hua(p) {  
+    var a = p;  
+    if (p.x <= 0 || p.x >= canvasObj.width) {  
+        a.vx = -p.vx;  
+        a.x += a.vx;  
+    } else if (p.y <= 0 || p.y >= canvasObj.height) {  
+        a.vy = -a.vy;  
+        a.y += a.vy;  
+    } else {  
+        a = {  
+            x: a.x + a.vx,  
+            y: a.y + a.vy,  
+            vx: a.vx,  
+            vy: a.vy,  
+            num: 0  
+        }  
+    }  
+    return a;  
+}  
+  
+function jiance(mouse) {  
+    for (var i = 0; i < arr.length; i++) {  
+        for (var j = 0; j < arr.length; j++) {  
+            if (i != j) {  
+                var len = Math.round(arr[i].x - arr[j].x) * Math.round(arr[i].x - arr[j].x) + Math.round(arr[i].y - arr[j].y) * Math.round(arr[i].y - arr[j].y)  
+                if (len <= 5000 && arr[i].num < 6) {  
+                    arr[i].num++;  
+                    canvas2d.lineWidth = 0.5 - len / 2000;  
+                    canvas2d.beginPath();  
+                    canvas2d.strokeStyle = "#white";  
+                    canvas2d.moveTo(arr[i].x + 2, arr[i].y + 2);  
+                    canvas2d.lineTo(arr[j].x, arr[j].y);  
+                    canvas2d.stroke();  
+                }  
+            }  
+        }  
+        if (mouse) {  
+            var leng = Math.round(arr[i].x - mouse.xx) * Math.round(arr[i].x - mouse.xx) + Math.round(arr[i].y - mouse.yy) * Math.round(arr[i].y - mouse.yy);  
+            if (leng > 5000 && leng <= 20000) {  
+                arr[i].x = arr[i].x + (mouse.xx - arr[i].x) / 20;  
+                arr[i].y = arr[i].y + (mouse.yy - arr[i].y) / 20;  
+            }  
+            if (leng <= 20000) {  
+                canvas2d.lineWidth = 1;  
+                canvas2d.strokeStyle = "#B0C4DE";  
+                canvas2d.beginPath();  
+                canvas2d.moveTo(arr[i].x, arr[i].y);  
+                canvas2d.lineTo(mouse.xx, mouse.yy);  
+                canvas2d.stroke();  
+            }  
+        }  
+    }  
+}  
+console.log("application is running!");  
+</script> 
+
+
 </body>
+
 </html>

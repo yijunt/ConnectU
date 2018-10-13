@@ -1,5 +1,7 @@
 package com.cu.model;
 
+import java.util.Arrays;
+
 public class Course {
 	public Course() {};
 	
@@ -82,6 +84,16 @@ public class Course {
 	public void setPrerequisiteCourses(String[] prerequisiteCourses) {
 		this.prerequisiteCourses = prerequisiteCourses;
 	}
+
+	@Override
+	public String toString() {
+		return "Course [courseName=" + courseName + ", courseId=" + courseId + ", courseUOC=" + courseUOC
+				+ ", prerequisiteCourseId=" + prerequisiteCourseId + ", semesterOne=" + semesterOne + ", semesterTwo="
+				+ semesterTwo + ", semesterThree=" + semesterThree + ", link=" + link + ", prerequisiteCourses="
+				+ Arrays.toString(prerequisiteCourses) + "]";
+	}
+	
+	
 	
 	
 }

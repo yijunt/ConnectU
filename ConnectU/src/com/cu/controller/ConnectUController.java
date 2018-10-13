@@ -21,9 +21,13 @@ public class ConnectUController {
 	public String getCoursesObject(String studentId) {
 		ArrayList<Course> courseList = courseFlowChartList(studentId);
 		ArrayList<Course> courseTakenList = courseTakenList(studentId);
-		ArrayList<CourseFC> courseObject = new ArrayList<>();
 
+		ArrayList<CourseFC> courseObject = new ArrayList<>();
+		Degree deg = degreeInfo(studentId);
+		boolean sem[] = {false, false, false};
+		courseObject.add(new CourseFC(deg.getDegreeId(), deg.getDegreeName(), null, null, null, false, false, sem));
 		Gson courseGson = new Gson();
+		
 		for(Course course : courseList) {
 			Gson gson = new Gson();
 			boolean completed = false;
@@ -32,9 +36,14 @@ public class ConnectUController {
 			boolean twoPrerequisite = false;
 			boolean semester[] = {false, false, false};
 			String link = course.getLink();
-			if(courseTakenList.contains(course)) {
-				completed = true;
+
+			for (int i = 0; i < courseTakenList.size(); i++) {
+				String courseTakenString = courseTakenList.get(i).toString();
+				if(courseTakenString.equals(course.toString())) {
+					completed = true;
+				}
 			}
+			
 			if(course.getPrerequisiteCourseId() != null) {
 				parent = course.getPrerequisiteCourseId();
 				if(course.getPrerequisiteCourses() != null) {
@@ -42,6 +51,8 @@ public class ConnectUController {
 					secPrerequisiteCourse = twoPrerequisites[1]; //getSecondCourse
 					twoPrerequisite = true;
 				}
+			} else {
+				parent = deg.getDegreeId();
 			}
 			if(course.isSemesterOne()) {
 				semester[0] = true; //sem 1
@@ -115,10 +126,10 @@ public class ConnectUController {
 		
 		//if its not under major category, then has to display in flowchart
 		for (Map.Entry<CourseDegree, Course> value : courseInfo(studentId).entrySet()) {
-			if(value.getKey().getMajor() == null) {
+//			if(value.getKey().getMajor() == null) {
 				Course course = value.getValue();
 				courseList.add(course);
-			}
+//			}
 		}
 		
 		return courseList;
@@ -145,6 +156,7 @@ public class ConnectUController {
 			}	
 		} catch (NullPointerException e) {
 			System.out.println("No major in this degree: " + e);
+			return null;
 		}
 		return majorMap;
 	}

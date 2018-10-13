@@ -1,6 +1,8 @@
 package com.cu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +35,15 @@ public class LoginController extends HttpServlet {
 			request.getSession().setAttribute("userName", userName);
 //			response.sendRedirect("html/homepage.html");
 			response.sendRedirect("HomePageController");
+		} else {
+			PrintWriter out = response.getWriter();
+			   out.println("<script type=\"text/javascript\">");
+			   out.println("alert('User or password incorrect');");
+			   out.println("location='index.html';");
+			   out.println("</script>");
 			
 		}
+		
 		
 	}
 	

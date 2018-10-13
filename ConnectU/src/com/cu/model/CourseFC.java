@@ -2,7 +2,6 @@ package com.cu.model;
 
 
 public class CourseFC {
-	
 	public CourseFC(String key, String courseName, String parent, String secPrerequisiteCourse,
 			String link, boolean completed, boolean twoPrerequisite, boolean[] semester) {
 		super();

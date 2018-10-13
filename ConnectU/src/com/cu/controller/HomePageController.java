@@ -2,6 +2,8 @@ package com.cu.controller;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -34,13 +36,21 @@ public class HomePageController extends HttpServlet {
 		// TODO Auto-generated method stub
 		studentId = request.getSession().getAttribute("userName").toString();
 		ConnectUController cu = new ConnectUController();
-		System.out.println(cu.getExtraCoursesObject(studentId));
-		System.out.println(cu.getCoursesObject(studentId));
+//		System.out.println(cu.getExtraCoursesObject(studentId));
+//		System.out.println(cu.getCoursesObject(studentId));
+		HashMap<String, ArrayList<String>> majorMap = new HashMap<>();
+		majorMap =  cu.majorMap(studentId);
 
-		request.getSession().setAttribute("name", cu.getExtraCoursesObject(studentId));
+		request.getSession().setAttribute("flowchartObject", cu.getCoursesObject(studentId));
 
 		request.getSession().setAttribute("userName", studentId);
-		response.sendRedirect("html/homepage.jsp");
+		if(majorMap.isEmpty()) {
+			request.getSession().setAttribute("majorBool", null);
+		} 
+		if(studentId.equals("1234"))
+			response.sendRedirect("html/homepage.jsp");
+		else 
+			response.sendRedirect("html/homepage2.jsp");
 	}
 
 	/**
