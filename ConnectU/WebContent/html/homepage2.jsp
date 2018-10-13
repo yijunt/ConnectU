@@ -15,7 +15,7 @@
 }
     </style>
     <title>ConnectYou | Dashboard</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="CSS/homepageStyle.css">
 <script type="text/javascript" src="JS/go.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel='stylesheet' type='text/css'>
 <script id="code">
@@ -234,13 +234,15 @@
 	
   }
 </script>
+<link rel="stylesheet" href="CSS/ChatBotCSS.css">
+<link rel="stylesheet" href="CSS/ProgressBarCSS.css">
 </head>
 
 <body> 
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">ConnectYou</span> </h1>
+          <img src="img/cylogo2.png" class="cylogo">
         </div>
         <nav>
           <ul>
@@ -376,16 +378,11 @@ function filterFunction() {
 	<div id="GEheading">
 <h2>Free Elective/General Education</h2>
 
-<button class="button button1">MGMT1001</button>
-<button class="button button2">ECO1001</button>
+<button class="button button1">COMP1000</button>
+<button class="button button2">COMP1501</button>
 <br>
 <br>
-<button class="button button3">ACCT2002</button>
-<button class="button button1">MGMT1001</button>
-<br>
-<br>
-<button class="button button2">ECON1001</button>
-<button class="button button3">ACCT2002</button>
+
   <p style="margin-top: 90px"><button id="zoomToFit" class = "buttons">Zoom to Fit</button> 
   <button id="centerRoot" class = "buttons">Center on root</button> </p>
   <p> <button id="sem1" class = "buttons">Semester 1</button> 
@@ -394,11 +391,53 @@ function filterFunction() {
   <p> <button id="reset" class = "buttons">Reset</button> </p>
 </div>
 
+<div style="float: left; width:350px; margin: 25px">
+<table border=0>
+<tr>
+<td>Completed</td>
+<td><div class="squareC"></div></td>
+</tr>	
+<tr>
+<td>Incompleted</td>
+<td><div class="squareI"></div></td>
+</tr>
+</table>
+</div>
+
+
 </div>
     <!-- NEXT SECTION - SPACE FOR FLOWCHART -->
 <div id="sample" style="width: 60%;float: right; margin: 30px; margin-right: 90px">
   <div id="myDiagramDiv" style="background-color: white; border: solid 1px black; width: 100%; height: 550px"></div>
 </div>
+<button class="open-button" onclick="openForm()"></button>
+
+<div class="chat-popup" id="myForm">
+  <div class="form-container">
+    <h1>Chat</h1>
+	<textarea id="bot"></textarea>
+    <label for="msg"><b>Message</b></label>
+    <input placeholder="Type message.." class="messageBox" onKeypress="enterButton(event, document.getElementsByTagName('input')[0].value)" name="msg" required />
+  
+    <button onClick="answer(document.getElementsByTagName('input')[0].value)" class="btn">Send</button>
+    <script src="JS/ChatbotJS.js" type="text/javascript"> </script>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </div>
+</div>
+<section>
+  <div>
+<img src="img/barbar.png" class="barbar">
+</div>
+</section>
+<script>
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+</script>
 </body>
 </section>
 </html>
