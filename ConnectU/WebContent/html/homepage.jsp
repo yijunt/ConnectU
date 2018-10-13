@@ -380,17 +380,22 @@ function filterFunction() {
 <br>
 <button class="button button2">COMP1000</button>
 <button class="button button3">COMP1511</button>
-  <p style="margin-top: 90px"><button id="zoomToFit" class = "buttons">Zoom to Fit</button> 
-  <button id="centerRoot" class = "buttons">Center on root</button> </p>
-  <p> <button id="sem1" class = "buttons">Semester 1</button> 
-  <button id="sem2" class = "buttons">Semester 2</button> 
-  <button id="sem3" class = "buttons">Semester 3</button> </p>
-  <p> <button id="reset" class = "buttons">Reset</button> </p>
+  <p style="margin-top: 90px"><button id="zoomToFit" class = "button button4">Zoom to Fit</button> 
+  <button id="centerRoot" class = "button button4">Center</button> </p>
+  <p> <button id="sem1" class = "button button4">Semester 1</button> 
+  <button id="sem2" class = "button button4">Semester 2</button> 
+  <button id="sem3" class = "button button4">Semester 3</button> </p>
+  <p> <button id="reset" class = "button button4">Reset</button> </p>
   
 </div>
 
 <div style="float: left; width:350px; margin: 25px">
 <table border=0>
+<tr>
+<td>
+Legend for Flowchart
+</td>
+</tr>
 <tr>
 <td>Completed</td>
 <td><div class="squareC"></div></td>

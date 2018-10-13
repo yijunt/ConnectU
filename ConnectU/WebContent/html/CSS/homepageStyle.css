@@ -422,6 +422,29 @@ h1{
     color: white;
 }
 
+.button4 {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 14px;
+  width: 130px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: white;
+  border: 1px solid #008CBA;
+  border-radius: 2px
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+.button4:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
 </style>
 
 /* CHOOSE MAJOR SECTION */
