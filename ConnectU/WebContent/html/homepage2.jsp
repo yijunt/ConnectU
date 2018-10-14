@@ -249,6 +249,7 @@
 		<div class="container">
 			<div id="branding">
 				<img src="img/cylogo2.png" class="cylogo">
+			<p style="margin-left: 10px; margin-top: 25px; font-size: 15px">Hello, Angelina</p>
 			</div>
 			<nav>
 				<ul>
