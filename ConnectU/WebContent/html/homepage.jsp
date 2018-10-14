@@ -247,8 +247,8 @@
         <nav>
           <ul>
             <!--  <li class="current"><a href="../index.html">Home</a></li>-->
-            <li><a href="homepage.jsp">Dashboard</a></li> <!--these links aren't correct?-->
-            <li><a href="../index.html" onclick="return confirm('Are you sure to log out?');">Log Out</a></li> 
+            <li><a style="margin-right: 30px" href="homepage.jsp">Dashboard</a></li> <!--these links aren't correct?-->
+            <li><a style="margin-right: 50px" href="../index.html" onclick="return confirm('Are you sure to log out?');">Log Out</a></li> 
           </ul>
         </nav>
       </div>

@@ -11,7 +11,7 @@ public class DBConnection {
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/connectudb?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false", "root", "Popsiclefizz123!");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/connectudb?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false", "root", "root");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

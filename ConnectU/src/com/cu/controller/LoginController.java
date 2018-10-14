@@ -28,23 +28,29 @@ public class LoginController extends HttpServlet {
 		String password = request.getParameter("password");
 
 		System.out.println("the name is " + userName);
-		
-		boolean result = verifyLogin(userName, password);
-
-		if(result) {
-			request.getSession().setAttribute("userName", userName);
-//			response.sendRedirect("html/homepage.html");
-			response.sendRedirect("HomePageController");
-		} else {
-			PrintWriter out = response.getWriter();
-			   out.println("<script type=\"text/javascript\">");
-			   out.println("alert('User or password incorrect');");
-			   out.println("location='index.html';");
-			   out.println("</script>");
+		if(userName.equals("admin")) {
+			if(password.equals("password")) {
+				response.sendRedirect("html/adminPage.html");
+			} else {
+				PrintWriter out = response.getWriter();
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('User or password incorrect');");
+				out.println("location='index.html';");
+				out.println("</script>");
+			}
 			
+		} else {
+			if(verifyLogin(userName, password)) {
+				request.getSession().setAttribute("userName", userName);
+				response.sendRedirect("HomePageController");
+				} else {
+					PrintWriter out = response.getWriter();
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('User or password incorrect');");
+					out.println("location='index.html';");
+					out.println("</script>");
+					}
 		}
-		
-		
 	}
 	
 
