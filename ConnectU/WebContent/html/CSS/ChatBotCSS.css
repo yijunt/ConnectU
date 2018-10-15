@@ -29,6 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   max-width: 250px;
   height: 520px;
   padding: 10px;
+  margin-bottom:20px;
   background-color: white;
 }
 
@@ -54,6 +55,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
   padding: 5px 10px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
   width: 100%;
   margin-top:5px;
@@ -77,4 +79,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 h1 {
 	text-align: center;
+	background-color: #224268;
+	color: white;
 }

@@ -1,5 +1,5 @@
 var you = "Me";
-botSays("Thanks for checking out my Simple chatBot.\nMy language knowledge is progressing. I recently learned 20 html tags. 6/11/17 \n\nType !name x where x = yourName to change your name.\nTo chat, click Talk to me or press Enter(pc) or Go(android)\nType help for a hint\n\n\n***")
+botSays("Welcome to ConnectYou Chatbot.")
             // Recognized Speech Patterns for Question Responses
 
 var Hello = ["HI", "HEY", "HOWDY", "HEYA", "HOLA", "HELLO", "SUP", "KONNICHIWA", "ALOHA"]

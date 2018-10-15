@@ -424,9 +424,9 @@
 						<button id="centerRoot" class="button button4">Center</button>
 					</p>
 					<p>
-						<button id="sem1" class="button button4">Semester 1</button>
-						<button id="sem2" class="button button4">Semester 2</button>
-						<button id="sem3" class="button button4">Semester 3</button>
+						<button id="sem1" class="button button4">Term 1</button>
+						<button id="sem2" class="button button4">Term 2</button>
+						<button id="sem3" class="button button4">Term 3</button>
 					</p>
 					<p>
 						<button id="reset" class="button button4">Reset</button>
