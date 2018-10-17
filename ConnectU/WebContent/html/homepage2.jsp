@@ -441,7 +441,7 @@
 
 		<div class="chat-popup" id="myForm">
 			<div class="form-container">
-				<h1>Chat</h1>
+					<h5 class="chatbotH">Chat</h5>
 				<textarea id="bot"></textarea>
 				<label for="msg"><b>Message</b></label> <input
 					placeholder="Type message.." class="messageBox"
