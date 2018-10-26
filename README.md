@@ -7,6 +7,6 @@ Libraries (jar) included
   4. JRE system library (jre1.8.0_181)
 
 Database server: MySQL
-  - The 'connectudb' schema are zipped into Dump20181015 folder
+  - Dump20181015 folder holds 'connectudb' schema
   - To connect our webapp project onto MySQL, jdbc is required and connection is connected at DBConnection.java with local MySQL server's user credentials. 
 
